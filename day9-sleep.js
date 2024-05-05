@@ -2,7 +2,7 @@ function sleep(value) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // Better way : set 'resolve' as the callback funtion.
-      // aka setTimeOut(resolve(),value)
+      // aka setTimeOut(resolve,value)
       resolve();
     }, value);
   });
