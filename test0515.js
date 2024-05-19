@@ -1,13 +1,28 @@
-// const arr = [{ x: 1 }, { x: 0 }, { x: -1 }],
-//   fn = (d) => d.x;
+const objects = [{ a: 1 }, { b: 2 }];
 
-const arr = [5, 4, 1, 2, 3],
-  fn = (x) => x;
+let tmp = JSON.stringify(objects);
+let ans = JSON.parse(tmp);
+let ans2 = structuredClone(objects);
+console.log(ans2);
+console.log(ans2[0] == objects[0]);
 
-function sortBy(arr, fn) {
-  const result = [...arr];
-  result.sort((a, b) => fn(a) - fn(b));
+// First idea: using 'Recursion',
+// And Top-Botton to copy the node.
+// The thought is right, but the detail is wrong XD
+// The concept of 'Cache' in recursion is very important.
+function deepCloneMe(obj) {
+  const result = [];
+  if (Array.isArray(obj)) {
+    for (const item of obj) {
+      result.push(item);
+    }
+  } else if (typeof Object) {
+    for (let key in obj) {
+      result[key] = obj[key];
+    }
+  } else {
+    return obj;
+  }
+
   return result;
 }
-
-console.log(sortBy(arr, fn));
