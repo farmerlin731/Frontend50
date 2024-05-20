@@ -2,16 +2,6 @@
 // Note 2 : How to use split(regex) to recognize the path.
 function get() {}
 
-//==day28==
-//The basic concept about 'closure.'
-
-function createHelloWorld() {
-  return () => "Hello World";
-}
-
-const tmp = createHelloWorld();
-console.log(tmp());
-
 //==dayXX==
 const objects = [{ a: 1 }, { b: 2 }];
 
@@ -25,6 +15,7 @@ console.log(ans2[0] == objects[0]);
 // And Top-Botton to copy the node.
 // The thought is right, but the detail is wrong XD
 // The concept of 'Cache' in recursion is very important.
+// And how to extend the original prototype.
 function deepCloneMe(obj) {
   const result = [];
   if (Array.isArray(obj)) {
@@ -41,3 +32,5 @@ function deepCloneMe(obj) {
 
   return result;
 }
+
+//
