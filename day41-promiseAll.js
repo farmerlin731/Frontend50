@@ -19,6 +19,23 @@ function promiseAll(promises) {
   });
 }
 
+//Wrong ans @ 0709 , just for recording XD
+var promiseAllWrongAns = async function (functions) {
+  const result = Array(functions.length);
+
+  functions.forEach((promise, i) => {
+    promise()
+      .then((res) => {
+        result[i] = res;
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  });
+
+  return result;
+};
+
 // For test
 function sleep(duration, value) {
   return new Promise((resolve, reject) => {
